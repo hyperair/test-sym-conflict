@@ -1,7 +1,9 @@
 CC ?= gcc
 CFLAGS ?= -g -O0
 
-all: libfoo.so libbar.so libintermediaryfoo.so libintermediarybar.so main
+ALL = libfoo.so libbar.so libintermediaryfoo.so libintermediarybar.so main
+
+all: $(ALL)
 
 libfoo.so: libfoo.c
 	$(CC) $(CFLAGS) -o $@ -shared -fPIC $<
@@ -19,4 +21,7 @@ main: main.c
 	$(CC) $(CFLAGS) -o $@ $< -ldl
 
 clean:
-	-rm main libintermediaryfoo.so libintermediarybar.so libbar.so libfoo.so
+	-rm $(ALL)
+
+run: $(ALL)
+	LD_LIBRARY_PATH=$(PWD) ./main
