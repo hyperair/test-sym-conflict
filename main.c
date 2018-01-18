@@ -29,6 +29,8 @@ int main ()
 {
     callhello ("libintermediaryfoo.so");
     callhello ("libintermediarybar.so");
+    callhello ("libintermediaryfoo.so");
+    callhello ("libintermediarybar.so");
 
     return 0;
 }
