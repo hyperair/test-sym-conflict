@@ -22,7 +22,7 @@ static void callhello (const char *filename)
 
     hi ();
 
-    dlclose (handle);
+    /* dlclose (handle); */
 }
 
 int main ()
